@@ -482,3 +482,20 @@ body.premium-page .navbar__inner {
   display: flex !important;
   align-items: center !important;
 }
+
+/* Preload Minecraft font to prevent navbar shift */
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/fonts/Minecraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Minecraft2';
+  src: url('/fonts/Minecraft2.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
