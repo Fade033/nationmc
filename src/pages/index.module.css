@@ -1,0 +1,245 @@
+.hero {
+  position: relative;
+
+  min-height: calc(100vh - 60px);
+
+  background-color: #03060b;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* Background image */
+.hero::before {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 70%;
+  height: 100%;
+
+  background-image: url('/img/Background.jpg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+
+  -webkit-mask-image: 
+    linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.7) 70%, black 100%),
+    linear-gradient(to bottom, black 85%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+
+  mask-image: 
+    linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.7) 70%, black 100%),
+    linear-gradient(to bottom, black 85%, transparent 100%);
+  mask-composite: intersect;
+
+  z-index: 0;
+}
+
+.heroContent {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+  padding-left: 120px;
+  padding-right: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
+
+  margin-bottom: 25px;
+}
+
+.title {
+  margin: 0 0 25px;
+
+  font-family: Minecraft;
+  src: url('/fonts/Minecraft.ttf') format('opentype');
+  font-size: 60px;
+  line-height: 1.05;
+  letter-spacing: 1px;
+
+  background: linear-gradient(90deg, #3181FF, #00FF6E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  max-width: 600px;
+
+  margin: 0 0 35px;
+
+  font-size: 23px;
+  line-height: 1.65;
+
+  color: white;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 200px;
+  height: 50px;
+
+  padding: 0 20px;
+
+  border: 2px solid white;
+  border-radius: 0;
+
+  background: transparent;
+
+  color: white;
+
+  font-family: 'Minecraft2';
+  src: url('/fonts/Minecraft2.otf') format('opentype');
+  font-style: normal;
+  font-size: 20px;
+  font-weight: normal;
+
+  text-decoration: none;
+
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+} 
+
+.discord {
+  margin-top: 15px;
+
+  color: #999;
+  font-size: 16px;
+
+  text-decoration: none;
+}
+
+.discord:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.secondSection {
+  width: 100%;
+  margin-top: calc(var(--ifm-navbar-height) + 2rem); /* Space from hero above */
+  margin-bottom: 6rem;
+  padding: 2rem 0;
+}
+
+.secondSectionInner {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center !important;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto 13rem auto !important;
+  padding: 0 2rem;
+}
+
+div.secondSectionInner.reversed {
+  flex-direction: row-reverse !important;
+}
+
+.secondSectionInner:last-child {
+  margin-bottom: 0 !important;
+}
+
+.secondSectionInner + .secondSectionInner {
+  margin-top: 6rem; /* Increased spacing between sections */
+}
+
+.secondSectionInner.reversed .textContent {
+  text-align: right;
+}
+
+.mapImageWrapper {
+  flex: 0 0 60% !important;
+  max-width: 1000px;
+  overflow: hidden;
+  border: 2px solid #444950;
+  border-radius: 8px;
+}
+
+.mapImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.textContent {
+  flex: 1 !important;
+  min-width: 0;
+}
+
+.sectionTitle {
+  font-size: 2.5rem; /* Adjust title size */
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #e5e5e5, rgba(229, 229, 229, .6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionDescription {
+  font-size: 1.25rem; /* Adjust description size */
+  line-height: 1.6;
+}
+
+.scrollArrow {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+
+/* Mobile */
+
+@media screen and (max-width: 996px) {
+  .hero {
+    min-height: 750px;
+
+    background-size: cover;
+    background-position: center;
+  }
+
+  .heroContent {
+    padding: 60px 40px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 19px;
+  }
+}

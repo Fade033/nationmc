@@ -1,0 +1,155 @@
+---
+sidebar_position: 9
+hide_title: false
+sidebar_label: 🌎 Nation Guide
+title: Nation Guide
+---
+
+<div align="center">
+  <img src="/img/Nation.png" alt="Nation guide" width="1000"/>
+</div>
+
+## Create a nation
+
+Creating a new nation costs $500,000. Make sure you have deposited the required amount to the town's bank via `/t deposit <amount>`. Only the mayor of a town can create a nation. The mayor's town will become the nation capital. Create the nation with `/n new <name>`.
+
+:::warning[Caution]
+
+Make sure your nation's name complies with the nation naming rules in rule 2.1 [rules](/docs/Rules#21-naming).
+
+:::
+
+## Nation basics
+
+As a nation leader, you can add allies with `/n ally add <nation>` and invite towns to your nation with `/n add <town>`. Do note that a town needs to be within a radius of 5,000 blocks from your capital's home plot to be eligible for invitation.
+
+Give and remove ranks from residents of your nation with `/n rank add <player> <rank>` or `/n rank remove <player> <rank>`. You can also kick towns from the nation with `/n kick <town>`, delete the nation with `/n delete`, toggle public joining to your nation with `/n toggle open`, and set the nation's spawn location anywhere within your capital with `/n set spawn`.
+
+Due to nations starting with no allies, you will likely want to get some. Keep in mind nations are only allowed 10 allies.
+
+As your nation gains more citizens, your ranking on `/n list` will increase. Nations fight each other to be on the top of this list as it shows who has put the most time into recruiting towns and players, which is a good indicator of activity. Nations (as well as towns) can also compete in a few categories. These leaderboards can be seen via `/nation (or /town) list` by category (categories should be automatically shown to the command sender).
+
+## Nation range
+
+As previously stated, towns within a range of 5,000 blocks from the nation capital can be invited to join the nation. However, this range can be extended by additional towns, with each town's homeblock adding an extra 1,500 blocks to the range. For instance, if Town A is within the 5,000-block range of the capital, and Town B is outside of this range but within 1,500 blocks of Town A, Town B can still be added to the nation. This feature enables nations to expand their territory more widely by linking towns in a chain-like formation, thereby increasing the nation’s geographical spread on the map.
+
+## Nation relocation
+
+If you want to relocate your nation's capital, you can use `/n set capital <town>`. That will swap the nation's capital and the nation's leader with the selected town. If you just want to set a new nation's leader without changing the town, you can use `/t set mayor <player>` and it will also change your nation's leader to that player. That action is free, unlike changing the nation's capital.
+
+## Nation merge
+
+`/n merge` makes it easier to transfer all towns from one nation to another. The kings of 2 nations have to agree to it first before the merge is completed.
+
+After 2 kings agreed to the merge, the command deletes the other nation and forces its towns to join the surviving nation where rules allow (including nation range limits); towns that fall outside the surviving nation’s allowed range will become nationless. The command is free of charge.
+
+## Nation commands
+
+:::note[Note]
+
+Only the king of the nation can run all of these commands.
+
+:::
+
+<table style={{ width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'center' }}>Command</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/n [name]</td>
+      <td>Get information about the specified nation.</td>
+    </tr>
+    <tr>
+      <td>/n new [name]</td>
+      <td>Create a new nation.</td>
+    </tr>
+    <tr>
+      <td>/n spawn</td>
+      <td>Teleport to your nation's capital.</td>
+    </tr>
+    <tr>
+      <td>/n leave</td>
+      <td>Make your town leave the nation.</td>
+    </tr>
+    <tr>
+      <td>/n withdraw [amount]</td>
+      <td>Withdraw money from the nation bank.</td>
+    </tr>
+    <tr>
+      <td>/n deposit [amount]</td>
+      <td>Deposit money into the nation bank.</td>
+    </tr>
+    <tr>
+      <td>/n add [town]</td>
+      <td>Invite a town to the nation.</td>
+    </tr>
+    <tr>
+      <td>/res set leaderprefix</td>
+      <td>Set the nation leader chat prefix to Ⓚ or Ⓠ (King or Queen).</td>
+    </tr>
+    <tr>
+      <td>/n kick [town]</td>
+      <td>Kick a town from the nation.</td>
+    </tr>
+    <tr>
+      <td>/n outlaw add/remove [player]</td>
+      <td>Outlaw a player from the nation, preventing them from joining or teleporting to nation towns.</td>
+    </tr>
+    <tr>
+      <td>/n outlawlist [nation]</td>
+      <td>View a nation's outlaws.</td>
+    </tr>
+    <tr>
+      <td>/n ally add/remove [nation]</td>
+      <td>Add or remove a nation ally.</td>
+    </tr>
+    <tr>
+      <td>/n enemy add/remove [nation]</td>
+      <td>Add or remove a nation enemy. This also removes or prevents an alliance.</td>
+    </tr>
+    <tr>
+      <td>/n rank add/remove [player] [rank]</td>
+      <td>Grant or revoke a rank from a nation resident.</td>
+    </tr>
+    <tr>
+      <td>/n toggle open</td>
+      <td>Toggle whether players can freely join your nation.</td>
+    </tr>
+    <tr>
+      <td>/n delete</td>
+      <td>Delete the nation.</td>
+    </tr>
+    <tr>
+      <td>/n set leader [player]</td>
+      <td>Transfer leadership of the nation to another player.</td>
+    </tr>
+    <tr>
+      <td>/n set capital [town]</td>
+      <td>Set the nation's capital.</td>
+    </tr>
+    <tr>
+      <td>/n set spawn</td>
+      <td>Set the nation's spawn point at your current location.</td>
+    </tr>
+    <tr>
+      <td>/n set board [message]</td>
+      <td>Set the nation's message of the day.</td>
+    </tr>
+    <tr>
+      <td>/n set taxes [amount]</td>
+      <td>Set nation taxes for each 24-hour cycle.</td>
+    </tr>
+    <tr>
+      <td>/n set title [title]</td>
+      <td>Set titles for members of your nation.</td>
+    </tr>
+    <tr>
+      <td>/n merge</td>
+      <td>Merge two nations together.</td>
+    </tr>
+  </tbody>
+</table>

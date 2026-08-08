@@ -1,0 +1,70 @@
+---
+sidebar_position: 8
+hide_title: false
+sidebar_label: 🏠 Rental System
+title: Rental System
+---
+
+<div align="center">
+  <img src="/img/Rent.png" alt="Rent" width="1000" style={{ marginBottom: '20px' }} />
+</div>
+
+Don't have enough money to buy your own property yet? With our custom rental system, players can rent [apartments](/docs/Quarters), [plots](/docs/Town#plots), and other properties throughout the world. New players are homeless by default and will have a [Homeless] prefix in the chat. Once you rent/buy a property or plot the [Homeless] prefix will disappear and your [income tax](/docs/Economy#income-tax) will go from 45% to 35%. More info on taxes [here](/docs/Economy).
+
+## How it works
+When you approach a property that is available for rent, a **BossBar** will appear at the top of your screen showing the rental price and lease duration. To rent a property or plot, type `/q rent` (for property) or `/plot rent` (for plot).
+
+### Secure rentals
+Once you rent a property, it becomes protected for the duration of your lease. The landlord cannot access your chests, break your blocks, or interfere with your belongings while you are renting.
+
+### Embassies
+Players can rent apartments in foreign towns while remaining part of their current town, allowing them to live and work across different regions without changing towns.
+
+## Renting out
+
+To rent out a [quarter](/docs/Quarters) or [plot](/docs/Town#plots) that you own, stand in it and type `/q forrent [days] [amount]` (for quarters) or `/plot forrent [days] [amount]` (for plots). To make a quarter or plot unavailable for rent, stand in it and type `/q notforrent` or `/plot notforrent`. To evict a renter, stand in it and type `/q unrent` or `/plot unrent`.
+
+## Commands
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'center' }}>Command</th>
+      <th style={{ textAlign: 'center' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/q rent</td>
+      <td>Rent available property</td>
+    </tr>
+    <tr>
+      <td>/plot rent</td>
+      <td>Rent available plot</td>
+    </tr>
+    <tr>
+      <td>/q forrent [days] [amount]</td>
+      <td>Set property for rent</td>
+    </tr>
+    <tr>
+      <td>/plot forrent [days] [amount]</td>
+      <td>Set plot for rent</td>
+    </tr>
+    <tr>
+      <td>/q notforrent</td>
+      <td>Make property unavailable for rent</td>
+    </tr>
+    <tr>
+      <td>/plot notforrent</td>
+      <td>Make plot unavailable for rent</td>
+    </tr>
+    <tr>
+      <td>/q unrent</td>
+      <td>Evict renter from property</td>
+    </tr>
+    <tr>
+      <td>/plot unrent</td>
+      <td>Evict renter from plot</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,318 @@
+---
+sidebar_position: 5
+hide_title: false
+sidebar_label: 🏰 Town Guide
+title: Town guide
+---
+
+<div align="center">
+  <img src="/img/Town.jpg" alt="Earth" width="1000" style={{ marginBottom: '20px' }} />
+</div>
+
+## The essentials
+
+1. Find a town to join. You may either request invitation or join an open town. Once invited, type `/accept` or click the prompt in chat. You can join open towns via `/t join <town>`.
+2. Creating a town costs $100,000. Upkeep for a town costs $75 per plot per day with a minimum upkeep of $250 per day and a maximum of $25,000 per day. Once you have earned the required amount of money, go to the location where you want the town to be. Then, type `/t new <name>` and accept the prompt. It will create a town with a single chunk.
+3. Basic commands for towns:
+
+    - `/t spawn` teleports you to your town's spawn.
+    - `/t invite <player>` invites players to your town.
+    - `/t leave` allows you to leave the town. It must not be owned by you.
+
+4. Claiming more land costs money. One chunk costs $1000. Stand in an unclaimed chunk and type `/t claim`. Be sure you deposited the required amount in the town bank via `/t deposit <amount>`.
+5. Your town can join a nation via `/n join <name>` (or be invited as well). You can only join nations whose capital's homeblock is within 3000 blocks of your town's homeblock. The nation must either be open as seen on `/n <nation>`, or your town has to be invited. Accept the invite using `/t invite accept <nation>`.
+
+There is a lot to learn about towns which could feel overwhelming at first. Don't worry and learn as you go. Once you have a town, you can relax and focus on building and gathering resources, things you already know from Minecraft. The commands above are enough to manage a small town with a few friends.
+
+:::tip[Tip]
+
+Avoid giving your residents a pre-made house and too much free gear. Let your residents grow and develop with your town. This improves resident retention.
+
+:::
+
+## Town permissions
+
+Town permissions manage what residents have access to interact with inside a town. There are 4 permission types:
+
+- **Build** - Place blocks inside the town.
+- **Destroy** - Destroy blocks inside the town.
+- **Switch** - Interact with chests, furnaces, levers, hoppers, droppers, and blocks with similar nature.
+- **Item** - Interact with water, lava, buckets, lighters, bone meal, ender pearls, bottles, and items of similar nature.
+
+All town permissions are disabled by default, as a mayor you can grant permissions by giving ranks with `/t rank add <player> <rank>` or by selling individual plots to residents with `/plot fs <price>`. It's also possible to change permissions specifically for allies and outsiders. For example, `/t set perm ally build on` would allow residents of allied nations to build inside the town. You can interact this way with individual chunks (called plots), too. More on that later.
+
+## Plots
+
+<div align="center">
+  <img src="/img/Plots.png" alt="Earth" width="1000" style={{ marginBottom: '20px' }} />
+</div>
+
+Plots are used to manage land inside the town. Plots can be sold or rented out to residents, have different properties and different permissions. Individual plots have the exact same size as town claims and Minecraft chunks which can be conveniently displayed with the chunk debug screen toggled with `F3+G`.
+
+A mayor can [add land to a town by claiming nearby wilderness](/docs/Claiming-Land) for a cost of $1000 `/t claim`. A mayor or other high-ranking town members can change permissions of individual plots and sell or rent out plots to residents. Residents can buy plots in their own town, but can't add new land to a town. This can cause confusion, especially since “plots” and “claims” are sometimes used interchangeably within the community.
+- Claim: A 16x16 chunk of land added to the town’s total controlled area, marking territorial boundaries and increasing available space for plots.
+- Plot: A specific 16x16 chunk within the town’s claimed territory, designated for particular uses (housing, commerce, embassies), and managed individually through permissions.
+
+Plots are useful since they allow towns to be divided for different purposes and town residents. A newly claimed chunk has the default plot settings/permissions and is only accessible by the mayor and residents with appropriate town ranks. A mayor or plot owner can put the plot up for sale or for rent by standing in the plot and running command `/plot fs <price>` or `/plot forrent <days> <price>`. This allows town residents to buy or rent it. To buy a plot, stand inside it and run command `/plot claim`. Buying a plot gives you full permissions to that 16x16 plot of land. Run `/plot unclaim` to remove yourself from the plot. To rent a plot, stand inside it and run command `/plot rent`.
+
+### Plot types
+
+Once you have access to a plot you may alter it in several ways. The first thing is to select what type of plot it is. Different types of plots have different types of properties. A plot can not have multiple types set at the same time. Set plot type with command `/plot set <type>`.
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'center' }}>Plot type</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Default</td>
+      <td>The default plot type. Useful for personal builds, such as homes or other forms of town bases.</td>
+    </tr>
+    <tr>
+      <td>Shop</td>
+      <td>Required in order to create shops.</td>
+    </tr>
+    <tr>
+      <td>Arena</td>
+      <td>Enables PvP inside the plot. Arena plots keep player inventory and experience on death.</td>
+    </tr>
+    <tr>
+      <td>Vault</td>
+      <td>Locks out all trusted players and any town councillors from accessing the plot. Only the town mayor, and players explicitly trusted in the plot using `/plot trust add` will have permissions.</td>
+    </tr>
+    <tr>
+      <td>Farm</td>
+      <td>Allows nation residents to harvest farms inside the plot, but not break any other types of blocks. It's also possible to damage mobs in farm plots.</td>
+    </tr>
+    <tr>
+      <td>Embassy</td>
+      <td>This allows any player to buy the plot, regardless of what town they may belong to. Owning an embassy and changing plot type will still make you the owner. This is useful when creating shops in different towns, expanding your markets abroad.</td>
+    </tr>
+    <tr>
+      <td>Inn</td>
+      <td>Allows other than plot owner to use beds inside the plot.</td>
+    </tr>
+    <tr>
+      <td>Wilds</td>
+      <td>Allows breaking of stone, minerals (andesite, granite, diorite), ores and deepslate. This allows for public mines within town while protecting builds.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Plot permissions
+It's possible to alter individual plot permissions. Plot permissions override global town permissions and work very similar to town permissions. Run `/plot set <build/destroy/switch/itemuse>`. Please see town permission section for explanation of what each permission type covers.
+
+It's also possible to toggle certain behaviors inside the plot. Run `/plot toggle <explosion/fire/mobs/pvp>`.
+
+### Plot commands summary
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'center' }}>Command</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/plot fs price</td>
+      <td>Set plot for sale</td>
+    </tr>
+    <tr>
+      <td>/plot forrent days price</td>
+      <td>Set plot for rent</td>
+    </tr>
+    <tr>
+      <td>/plot claim</td>
+      <td>Buy available plot</td>
+    </tr>
+    <tr>
+      <td>/plot unclaim</td>
+      <td>Remove yourself from plot</td>
+    </tr>
+    <tr>
+      <td>/plot rent</td>
+      <td>Rent available plot</td>
+    </tr>
+    <tr>
+      <td>/plot set type</td>
+      <td>Set type of plot</td>
+    </tr>
+    <tr>
+      <td>/plot set [minjoindays/maxjoindays] [number/clear]</td>
+      <td>Limits who can claim plots in towns, based on their join date, allowing mayors to set aside land for new players or old players. Does not affect embassy plots.</td>
+    </tr>
+    <tr>
+      <td>/plot set perm [build/destroy/switch/itemuse]</td>
+      <td>Settings for plot</td>
+    </tr>
+    <tr>
+      <td>/plot toggle [explosion/fire/mobs/pvp]</td>
+      <td>Toggle specific values for plot</td>
+    </tr>
+  </tbody>
+</table>
+
+## Town ranks
+
+Mayors can give ranks to residents with `/t rank add <player> <rank>`.
+
+- **Councillor** gives the player full access to town plots regardless of ownership, access to most town commands excluding `/t unclaim`, `/t set mayor <player>`, `/t delete`, etc. This rank should only be given to the most trusted citizens as it could be detrimental to your town. They can kick everyone except the mayor and other councillors, withdraw money from the town bank and edit town/plot's permissions.
+- **Trusted** is similar to the Councillor rank in that they can access any plot regardless of ownership, but they cannot use the most advanced commands as a councillor could.
+- **Builder** can access every plot not owned by an individual. They can build, open chests, use items and break blocks anywhere in the town as long as the plot is not owned by a player.
+- **Realtor** can set plots for sale in a town that are not currently owned, take them off of sale and set them as embassies. It compliments the Recruiter rank nicely to let trusted citizens get new players integrated into their town. It has all `/plot` permissions for unowned plots within towns. Realtor also has permissions in [quarters](/docs/Quarters) to evict, sell, colour, change type, and toggle embassy.
+- **Settler** can claim chunks for the town with `/t claim`.
+- **Recruiter** can to invite other players with `/t add <player>`.
+- **Police** can add users to the town outlaw list with `/t outlaw add <player>`.
+- **Treasurers** can use `/t withdraw <amount>` to withdraw money from the town bank.
+
+## Town succession rules
+
+Succession occurs automatically when a Mayor becomes inactive (not logging in for 42 days), following this priority:
+
+1. **Councillor**: The councillor who has been in the town for the longest duration becomes Mayor.
+2. **Most Active Resident**: If no councillors exist, the resident who has been the most active becomes the new mayor.
+
+## Resident Inactivity
+
+When a resident doesn't log on for 42 days, they become inactive. Their /resident nickname "grey-es out" and an (Inactive) suffix is showed.
+
+- Those residents don't contribute to the town's size limit or affect /n list, /t list.
+- The only data that gets retained are their plots, [quarters](/docs/Quarters) and ranks in towns/nations.
+- If a mayor becomes inactive, they lose their mayor rank and it gets handed over according to the town succession rules. The only exception is made to mayors with [Premium](/Premium) - those retain their mayorship permanently.
+
+## Town warps
+
+Warps are aimed at larger towns looking to expand their teleportation points. Instead of having to rely on their town spawn for everything, they can create more spawnpoints!
+
+**Creation**  
+Town mayors can create a warp using `/t warpmanager add {name}`
+
+**Teleporting**
+
+- A warp's access level is set to NATION, only residents of that town and nation members can teleport to that warp.
+- Players can teleport using `/t warp {town} {name}`. If the warp is a part of your town, you can directly use `/t warp {name}`, but expect no accurate tabcomplete support.
+
+## Town merge
+
+/t merge is aimed at larger towns willing to claim chunks of another town but at a cheaper cost than normal unclaiming/reclaiming.
+
+**Conditions**
+
+- Only town mayors can approve the merge.
+- Townblocks of 2 towns have to be at a touching distance to merge.
+
+After the mayor of a town sends a merge request to another town, mayor of that town has to approve it. After that, townblocks, residents, plot data and town bank money are transferred.
+
+## Outsider spawn
+
+Towns may allow outsiders to teleport to their `/t spawn`.
+
+## Town commands
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'center' }}>Command</th>
+      <th style={{ textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/t [town]</td>
+      <td>View information on specific town</td>
+    </tr>
+    <tr>
+      <td>/t invite [player]</td>
+      <td>Invite player to town</td>
+    </tr>
+    <tr>
+      <td>/t here</td>
+      <td>Shows information on town at current location</td>
+    </tr>
+    <tr>
+      <td>/t list</td>
+      <td>List of all towns</td>
+    </tr>
+    <tr>
+      <td>/t leave</td>
+      <td>Leave town</td>
+    </tr>
+    <tr>
+      <td>/t new [name]</td>
+      <td>Create a new town</td>
+    </tr>
+    <tr>
+      <td>/t add [player]</td>
+      <td>Add resident to town</td>
+    </tr>
+    <tr>
+      <td>/t kick [player]</td>
+      <td>Kick resident from town</td>
+    </tr>
+    <tr>
+      <td>/t spawn</td>
+      <td>Teleport to town spawn</td>
+    </tr>
+    <tr>
+      <td>/t claim</td>
+      <td>[Claim chunk](Claiming-Land)</td>
+    </tr>
+    <tr>
+      <td>/t withdraw [amount]</td>
+      <td>Withdraw money from town bank</td>
+    </tr>
+    <tr>
+      <td>/t warp [town] [warp]</td>
+      <td>Teleport to a town's warp</td>
+    </tr>
+    <tr>
+      <td>/t warpmanager [action]</td>
+      <td>Manage your town's warps</td>
+    </tr>
+    <tr>
+      <td>/t takeoverclaim</td>
+      <td>Take claimed chunk from another town known as [overclaiming](Claiming-Land#Overclaiming)</td>
+    </tr>
+    <tr>
+      <td>/t deposit [amount]</td>
+      <td>Deposit money to town bank</td>
+    </tr>
+    <tr>
+      <td>/t rank [add/remove] [player] [rank]</td>
+      <td>Add/remove a town rank</td>
+    </tr>
+    <tr>
+      <td>/t set [board/mayor/homeblock/perm]</td>
+      <td>Settings for town</td>
+    </tr>
+    <tr>
+      <td>/t set plotprice</td>
+      <td>Set default plot price for unowned plots. Set to -1 to prevent all town plots from being sold.</td>
+    </tr>
+    <tr>
+      <td>/t toggle [explosion/fire/mobs/pvp]</td>
+      <td>Toggle specific values for town</td>
+    </tr>
+    <tr>
+      <td>/t forsale [amount]</td>
+      <td>Sell entire town for specified amount of money</td>
+    </tr>
+    <tr>
+      <td>/t buytown [town]</td>
+      <td>Buy a town that has been put up for sale. Town price is displayed on /t.</td>
+    </tr>
+    <tr>
+      <td>/t merge [town]</td>
+      <td>Merges 2 towns together, preserving claims, residents and plot permissions</td>
+    </tr>
+  </tbody>
+</table>
+:::warning[Caution]
+
+Towns automatically get deleted after 42 days of inactivity if no single resident has joined the server in that period of time.
+
+:::

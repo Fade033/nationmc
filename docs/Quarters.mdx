@@ -1,0 +1,233 @@
+---
+sidebar_position: 6
+hide_title: false
+sidebar_label: 🏢 Quarters
+title: Quarters
+---
+
+<div align="center">
+  <img src="/img/Quarters.jpg" alt="Quarters" width="1000" style={{ marginBottom: '20px' }} />
+</div>
+
+Quarters extends the functionality of towns and plots to allow the creation of apartments. Standard [plots](/docs/Town#plots) are restricted to a simple grid-based system that requires allowing and restricting permissions of an entire chunk. Quarters can instead allow for dynamically sized cuboids in which permissions can be edited.
+
+## Creating a Quarter
+
+To create a quarter you need to be the mayor or councillor, then you can select two positions using flint, this is the "wand" item in Quarters. With two positions selected, an outline of a cuboid will appear showing your selection while you are holding the wand.
+
+:::tip[Tip]
+
+If you cannot get access to a flint you can use `/q wand` to get a free wand one time
+
+:::
+
+From this point, you can optionally choose to simply write `/q create`, or if you want a custom shaped cuboid, write `/q selection add`. You can add as many cuboids as you want provided they follow the below requirements.
+
+## Quarter prerequisites
+
+The following requirements must be met in order to create a quarter:
+
+- The quarter is entirely within a single town
+- There is no wilderness within any of the cuboid's bounds
+- Your selected cuboids do not overlap with any pre-existing cuboids
+- The quarter does not exit the minimum or maximum height of the world
+
+Existing quarters will be deleted if any of the above requirements are no longer true, for example if the underlying townblock is unclaimed or the town is deleted.
+
+## Permission management
+
+Just like towns, nations and plots, you can manage permissions by resident, nation, ally and outsider. This is done with `/q set [actiontype] [permlevel] [true/false]`. Additionally, you can give others full access to a quarter in terms of those permissions but not command permissions with the `/q trust` add command.
+
+:::info[Info]
+
+Quarter permissions override the underlying plot permissions allowing for more granular control.
+
+:::
+
+## Quarter types
+
+All quarter types are additive to the functionality of the default apartment type. Mayors and councillors can change a quarter's type with `/q type [type]`.
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'center' }}>Quarter type</th>
+      <th style={{ textAlign: 'center' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apartment</td>
+      <td>The default quarter type. The owner, trusted users, those with perms in the quarter, and those with permissions in the underlying town plot can alter this quarter type.</td>
+    </tr>
+    <tr>
+      <td>Inn</td>
+      <td>Allows players to use beds inside the quarter.</td>
+    </tr>
+    <tr>
+      <td>Station</td>
+      <td>Allows players to use vehicles like boats and minecarts inside the quarter.</td>
+    </tr>
+  </tbody>
+</table>
+
+Keep in mind that for quarter types, you must set the quarter as an embassy with `/q toggle embassy` to allow town outsiders to also benefit from their properties.
+
+:::note[Note]
+
+Mayors and councillors can manage trusted players in quarters without owning the quarter along with many other properties
+
+:::
+
+## Sell, buy or rent quarters
+
+To sell a quarter, stand within its bounds and type `/q sell [price]`, a player can then purchase it using `/q claim` while standing inside it. To sell to a player who is not a resident of the quarter's town, you must first turn the quarter into an embassy using `/q toggle embassy`. If the quarter's embassy status is removed the non-resident owner's ownership will be revoked. To rent a quarter, stand within its bounds and type `/q rent`. To rent out a quarter, stand within its bounds and type `/q forrent [days] [price]`.
+
+## commands
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ textAlign: 'center' }}>Command</th>
+      <th style={{ textAlign: 'center' }}>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/q claim</td>
+      <td>Claim a quarter that is for sale.</td>
+    </tr>
+    <tr>
+      <td>/q rent</td>
+      <td>Claim a quarter that is for rent.</td>
+    </tr>
+    <tr>
+      <td>/q create</td>
+      <td>Turn a selected area into a quarter.</td>
+    </tr>
+    <tr>
+      <td>/t here</td>
+      <td>Shows information on town at current location</td>
+    </tr>
+    <tr>
+      <td>/q delete</td>
+      <td>Delete the quarter you are currently standing in.</td>
+    </tr>
+    <tr>
+      <td>/q delete plot</td>
+      <td>Delete all quarters in the plot you are standing in.</td>
+    </tr>
+    <tr>
+      <td>/q evict</td>
+      <td>Evict the owner of the quarter you are standing in.</td>
+    </tr>
+    <tr>
+      <td>/q edit</td>
+      <td>Command method to edit your quarter with the `addselection` or `remove` arguments</td>
+    </tr>
+    <tr>
+      <td>/q here</td>
+      <td>View information about the quarter you are standing in.</td>
+    </tr>
+    <tr>
+      <td>/q pos</td>
+      <td>Command bypass to set positions without a wand.</td>
+    </tr>
+    <tr>
+      <td>/q selection add</td>
+      <td>Adds a selected cuboid to your current selection.</td>
+    </tr>
+    <tr>
+      <td>/q selection clear</td>
+      <td>Remove all your currently added cuboids</td>
+    </tr>
+    <tr>
+      <td>/q selection copy</td>
+      <td>Copy your currently added cuboids relative to your position</td>
+    </tr>
+    <tr>
+      <td>/q selection paste</td>
+      <td>Paste your currently copied cuboids</td>
+    </tr>
+    <tr>
+      <td>/q set name [name]</td>
+      <td>Set a quarter's name to display on `/q here`</td>
+    </tr>
+    <tr>
+      <td>/q set perm</td>
+      <td>Manage a quarter's permissions, they can be viewed on `/q here`</td>
+    </tr>
+    <tr>
+      <td>/q set particlesize</td>
+      <td>Set specific quarter particle size for the quarter you stand in. If not within quarter, command sets default particle size for all quarters.</td>
+    </tr>
+    <tr>
+      <td>/q remove</td>
+      <td>Removes the cuboid you are standing in from your current selection.</td>
+    </tr>
+    <tr>
+      <td>/q sell [price]</td>
+      <td>Put a quarter up for sale with the specified price.</td>
+    </tr>
+    <tr>
+      <td>/q forrent [days] [price]</td>
+      <td>Put a quarter up for rent with the specified time and price.</td>
+    </tr>
+    <tr>
+      <td>/q notforrent</td>
+      <td>Make a plot unavailable for rent.</td>
+    </tr>
+    <tr>
+      <td>/q toggle embassy</td>
+      <td>Toggle a quarter's embassy status on or off.</td>
+    </tr>
+    <tr>
+      <td>/q toggle entryblinking</td>
+      <td>Toggle quarter border blinking. Good alternative if you don't want all outlines to be shown at all times.</td>
+    </tr>
+    <tr>
+      <td>/q toggle constantoutlines</td>
+      <td>Turn on or off particle outlines appearing constantly</td>
+    </tr>
+    <tr>
+      <td>/q toggle entrynotifications</td>
+      <td>Enable or disable notifications in chat when you enter a quarter</td>
+    </tr>
+    <tr>
+      <td>/q toggle sellondelete</td>
+      <td>Enable or disable quarters being sold automatically when their owner is deleted</td>
+    </tr>
+    <tr>
+      <td>/q trust add</td>
+      <td>Add a resident as trusted in a quarter, granting them the same permissions as the owner.</td>
+    </tr>
+    <tr>
+      <td>/q trust remove</td>
+      <td>Remove a resident's trusted status in a quarter.</td>
+    </tr>
+    <tr>
+      <td>/q trust clear</td>
+      <td>Remove all trusted residents from a quarter.</td>
+    </tr>
+    <tr>
+      <td>/q type [type]</td>
+      <td>Change a quarter's type to the specified category.</td>
+    </tr>
+    <tr>
+      <td>/q unclaim</td>
+      <td>Relinquish ownership of a quarter.</td>
+    </tr>
+    <tr>
+      <td>/q set colour</td>
+      <td>Change a quarter's particle outline colour. The arguments are an RGB colour.</td>
+    </tr>
+    <tr>
+      <td>/q wand</td>
+      <td>Receive a free wand for one-time use</td>
+    </tr>
+    <tr>
+      <td>/q set entrynotifications chat/hotbar</td>
+      <td>Toggle how quarter entry notifications are displayed. Default is hotbar.</td>
+    </tr>
+  </tbody>
+</table>
