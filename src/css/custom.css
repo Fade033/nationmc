@@ -472,7 +472,7 @@ body.premium-page .navbar__inner {
   padding-right: 0 !important;
 }
 
-/* Preload Minecraft font to prevent navbar shift */
+/* Keep this */
 @font-face {
   font-family: 'Minecraft';
   src: url('/fonts/Minecraft.ttf') format('truetype');
@@ -489,12 +489,36 @@ body.premium-page .navbar__inner {
   font-display: block;
 }
 
-/* Prevent FOUC (Flash of Unstyled Content) on navbar */
-#__docusaurus {
-  opacity: 0;
-  transition: opacity 0.1s ease-in;
+/* Add this */
+html {
+  visibility: hidden;
 }
 
-#__docusaurus:has(.navbar) {
-  opacity: 1;
+html.fonts-loaded {
+  visibility: visible;
+}
+
+/* Fix mobile navbar */
+@media (max-width: 996px) {
+  /* Reset PLAY NOW button on mobile - hide it or make it fit */
+  .navbar-play-button {
+    display: none !important;
+  }
+
+  /* Reset any custom navbar positioning on mobile */
+  .navbar__items--right {
+    margin-right: 0 !important;
+  }
+
+  /* Make sure hamburger menu works properly */
+  .navbar__toggle {
+    display: inherit !important;
+  }
+
+  /* Reset premium page navbar overrides on mobile */
+  body.premium-page .navbar,
+  body:has(.premium-hero) .navbar {
+    position: relative !important;
+    background-color: #03060b !important;
+  }
 }
