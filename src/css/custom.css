@@ -1,16 +1,32 @@
-/* prevent occasional horizontal scrollbar from full-bleed heroes */
+/* Prevent horizontal scrollbar from full-bleed heroes */
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* ============================================
+   FONTS
+   ============================================ */
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/fonts/Minecraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
 
+@font-face {
+  font-family: 'Minecraft2';
+  src: url('/fonts/Minecraft2.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+/* ============================================
+   ROOT VARIABLES
+   ============================================ */
 :root {
   --ifm-color-primary: #0080cb;
   --ifm-color-primary-dark: #2574e0;
@@ -28,12 +44,8 @@ html, body {
   --premium-card-image-gap: 148px;
   --premium-card-width: 400px;
   --premium-image-width: 250px;
---premium-section-offset-x: -22px;
---premium-section-offset-y: 56px;
-}
-
-body.premium-page {
-  background: #03060b !important;
+  --premium-section-offset-x: -22px;
+  --premium-section-offset-y: 56px;
 }
 
 [data-theme='dark'] {
@@ -47,12 +59,23 @@ body.premium-page {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-.markdown h1 {
-  font-size: 3rem;
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+body.premium-page {
+  background: #03060b !important;
 }
 
 h1, h2 {
   font-family: 'Minecraft', sans-serif;
+}
+
+.markdown h1 {
+  font-size: 3rem;
 }
 
 .theme-doc-markdown h1 {
@@ -61,105 +84,90 @@ h1, h2 {
   -webkit-text-fill-color: transparent;
 }
 
-.premium-hero {
-  position: relative;
-  left: calc(50% + var(--premium-hero-offset-x, 0px));
-  right: 50%;
-  width: 100vw;
-  min-height: var(--premium-hero-height, 100vh);
-  margin: var(--premium-hero-margin-top, 0px) calc(-50vw + 50%);
-  padding: 0 !important;
-  overflow: hidden;
-  background: var(--premium-hero-bg) center top / cover no-repeat;
+.main-wrapper {
   background-color: #03060b;
-  display: block;
-  z-index: 0;
 }
 
-.premium-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.2);
-  pointer-events: none;
-  z-index: 0;
-}
-
-#map-section {
-  scroll-margin-top: 150px; /* Reduce from 100px */
-}
-
-body:has(.premium-hero) .navbar,
-body.premium-page .navbar {
-  background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  border-bottom: none !important;
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 60 !important;
-}
-
-body:has(.premium-hero) .main-wrapper,
-body.premium-page,
-body.premium-page > #__docusaurus,
-body.premium-page .main-wrapper,
-body.premium-page .theme-doc-layout,
-body.premium-page .theme-doc-main,
-body.premium-page .theme-doc-wrapper,
-body.premium-page .theme-doc-markdown,
-body.premium-page .docMainWrapper,
-body.premium-page .theme-doc-content,
-body.premium-page .content-wrapper {
-  background: transparent !important;
-  background-color: transparent !important;
-  margin-top: 0 !important;
-}
-
-body.premium-page .main-wrapper,
-body.premium-page .theme-doc-markdown,
-body.premium-page .theme-doc-layout {
-  position: relative !important;
-  z-index: 30 !important;
-}
-
-body.premium-page .footer {
-  position: relative !important;
-  z-index: 5 !important;
-  margin-top: 0 !important;
-  border-top: none !important;
-}
-
-.premium-hero .premium-section {
-  position: relative;
-  z-index: 2;
-  padding-top: calc(var(--ifm-navbar-height, 0px) + 12px);
-}
-
-body:has(.premium-hero) .footer {
-  margin-top: 0 !important;
-}
-
+/* ============================================
+   NAVBAR
+   ============================================ */
 .navbar {
   background-color: #03060b;
   border-bottom: 1px solid #44494e;
+  min-height: 60px;
+}
+
+.navbar__inner {
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+}
+
+.navbar__items {
+  align-items: center;
+}
+
+.navbar__items:first-child {
+  margin-left: 0;
+  padding-left: 0;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navbar__items--right {
+  margin-right: 0;
+  position: absolute;
+  right: 2rem;
+  align-items: center;
 }
 
 .navbar__title {
-  margin-left: 1.2rem; /* Adjust value as needed */
+  margin-left: 1.2rem;
 }
 
+/* PLAY NOW Button */
+.navbar-play-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #3181FF, #00eaff);
+  color: #000 !important;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 790;
+  text-decoration: none !important;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(49, 129, 255, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-play-button:hover {
+  box-shadow: 0 0 20px rgba(49, 129, 255, 0.7);
+  text-decoration: none !important;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
 .footer {
   background-color: #03060b;
   border-top: 1px solid #44494e;
 }
 
-.main-wrapper {
-  background-color: #03060b;
+.footer__title {
+  letter-spacing: .03em;
+  font-family: Minecraft;
+  font-size: 1.1rem;
 }
 
+/* ============================================
+   TABLES
+   ============================================ */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -195,12 +203,98 @@ table td:last-child {
   width: 290px;
 }
 
-.footer__title {
-  letter-spacing: .03em;
-  font-family: Minecraft;
-  font-size: 1.1rem;
+/* ============================================
+   PREMIUM PAGE
+   ============================================ */
+.premium-hero {
+  position: relative;
+  left: calc(50% + var(--premium-hero-offset-x, 0px));
+  right: 50%;
+  width: 100vw;
+  min-height: var(--premium-hero-height, 100vh);
+  margin: var(--premium-hero-margin-top, 0px) calc(-50vw + 50%);
+  padding: 0 !important;
+  overflow: hidden;
+  background: var(--premium-hero-bg) center top / cover no-repeat;
+  background-color: #03060b;
+  display: block;
+  z-index: 0;
 }
 
+.premium-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#map-section {
+  scroll-margin-top: 150px;
+}
+
+/* Premium navbar - transparent and fixed */
+body:has(.premium-hero) .navbar,
+body.premium-page .navbar {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60 !important;
+}
+
+body.premium-page .navbar__inner {
+  padding-right: 0 !important;
+}
+
+/* Premium page transparent backgrounds */
+body:has(.premium-hero) .main-wrapper,
+body.premium-page,
+body.premium-page > #__docusaurus,
+body.premium-page .main-wrapper,
+body.premium-page .theme-doc-layout,
+body.premium-page .theme-doc-main,
+body.premium-page .theme-doc-wrapper,
+body.premium-page .theme-doc-markdown,
+body.premium-page .docMainWrapper,
+body.premium-page .theme-doc-content,
+body.premium-page .content-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+  margin-top: 0 !important;
+}
+
+body.premium-page .main-wrapper,
+body.premium-page .theme-doc-markdown,
+body.premium-page .theme-doc-layout {
+  position: relative !important;
+  z-index: 30 !important;
+}
+
+body.premium-page .footer {
+  position: relative !important;
+  z-index: 5 !important;
+  margin-top: 0 !important;
+  border-top: none !important;
+  display: none !important;
+}
+
+body:has(.premium-hero) .footer {
+  margin-top: 0 !important;
+}
+
+.premium-hero .premium-section {
+  position: relative;
+  z-index: 2;
+  padding-top: calc(var(--ifm-navbar-height, 0px) + 12px);
+}
+
+/* Premium sections */
 .premium-section {
   display: flex;
   justify-content: center;
@@ -311,6 +405,39 @@ h1.premium-title {
   display: block;
 }
 
+.premium-button {
+  color: #5d1751;
+  text-align: center;
+  background-color: #f643d7;
+  box-shadow: 0 8px 0 0 #a62c92;
+  border-radius: 5px;
+  width: 100%;
+  margin: 48px 0 0 0;
+  padding: 15px 30px;
+  font-family: Minecraft;
+  font-size: 1.5em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  transform: translateY(-7px);
+  text-decoration: none;
+}
+
+.premium-button:hover,
+.premium-button:focus {
+  text-decoration: none;
+}
+
+.premium-button:active {
+  transform: translateY(8px);
+  box-shadow: 0 0 0 0 transparent;
+}
+
+/* ============================================
+   PREMIUM RESPONSIVE
+   ============================================ */
 @media (max-width: 1080px) {
   .premium-section {
     justify-content: center;
@@ -357,6 +484,9 @@ h1.premium-title {
   .premium-section {
     flex-direction: column;
     align-items: center;
+    left: 0;
+    top: 0;
+    padding: 1rem;
   }
 
   .premium-card,
@@ -368,159 +498,53 @@ h1.premium-title {
 
   .premium-image {
     margin-top: 24px;
+    max-width: 300px;
+  }
+
+  .premium-hero {
+    left: 0;
+    min-height: 60vh;
+  }
+
+  .theme-doc-markdown h1.premium-title,
+  h1.premium-title {
+    font-size: 2rem;
+  }
+
+  .premium-text {
+    font-size: 16px;
+  }
+
+  .premium-features li {
+    font-size: 16px;
+  }
+
+  .premium-button {
+    font-size: 1.2em;
+    padding: 12px 20px;
   }
 }
 
-.premium-button {
-  color: #5d1751;
-  text-align: center;
-  background-color: #f643d7;
-  box-shadow: 0 8px 0 0 #a62c92;
-  border-radius: 5px;
-  width: 100%;
-  margin: 48px 0 0 0;
-  padding: 15px 30px;
-  font-family: Minecraft;
-  font-size: 1.5em;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  transition: transform 120ms ease, box-shadow 120ms ease;
-  transform: translateY(-7px);
-  text-decoration: none;
-}
-
-.premium-button:hover,
-.premium-button:focus {
-  text-decoration: none;
-}
-
-.premium-button:active {
-  transform: translateY(8px);
-  box-shadow: 0 0 0 0 transparent;
-}
-
-body.premium-page .footer {
-  display: none !important;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.navbar-play-button {
-  display: inline-block;
-  padding: 10px 16px; /* Reduced padding to compensate for larger text */
-  background: linear-gradient(135deg, #3181FF, #00eaff);
-  color: #000 !important;
-  font-family: sans-serif;
-  font-size: 15px; /* Increased from 14px */
-  font-weight: 790;
-  text-decoration: none !important;
-  border-radius: 6px;
-  box-shadow: 0 0 15px rgba(49, 129, 255, 0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  line-height: 1; /* Prevents extra height from line spacing */
-  margin-right: 0rem !important;
-  border: none;
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.navbar-play-button:hover {
-  box-shadow: 0 0 20px rgba(49, 129, 255, 0.7);
-  text-decoration: none !important;
-}
-
-/* Push all navbar content to create space */
-.navbar__inner {
-  justify-content: space-between;
-}
-
-/* Center navbar items as a group */
-.navbar__inner {
-  justify-content: center;
-  gap: 2rem;
-}
-
-.navbar__items:first-child {
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.navbar__items--right {
-  margin-right: 0;
-}
-
-body.premium-page .navbar__inner {
-  padding-right: 0 !important;
-}
-
-/* Keep this */
-@font-face {
-  font-family: 'Minecraft';
-  src: url('/fonts/Minecraft.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-
-@font-face {
-  font-family: 'Minecraft2';
-  src: url('/fonts/Minecraft2.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-
-/* Prevent layout shift - pure CSS, no JS needed */
-.navbar {
-  min-height: 60px;
-}
-
-.navbar__inner {
-  min-height: 60px;
-}
-
+/* ============================================
+   MOBILE NAVBAR
+   ============================================ */
 @media (max-width: 996px) {
-  .navbar-play-button {
-    display: none;
-  }
-}
-
-/* Fix mobile navbar */
-@media (max-width: 996px) {
-  /* Reset PLAY NOW button on mobile - hide it or make it fit */
   .navbar-play-button {
     display: none !important;
   }
 
-  /* Reset any custom navbar positioning on mobile */
   .navbar__items--right {
+    position: static;
     margin-right: 0 !important;
   }
 
-  /* Make sure hamburger menu works properly */
   .navbar__toggle {
     display: inherit !important;
   }
 
-  /* Reset premium page navbar overrides on mobile */
   body.premium-page .navbar,
   body:has(.premium-hero) .navbar {
     position: relative !important;
     background-color: #03060b !important;
   }
-}
-
-.navbar__inner {
-  justify-content: center;
-  gap: 2rem;
-  align-items: center;
-}
-
-.navbar__items {
-  align-items: center;
 }
