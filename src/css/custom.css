@@ -514,3 +514,13 @@ body.premium-page .navbar__inner {
     background-color: #03060b !important;
   }
 }
+
+.navbar__inner {
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar__items {
+  align-items: center;
+}
