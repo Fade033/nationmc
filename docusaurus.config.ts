@@ -77,12 +77,6 @@ const config: Config = {
       },
       items: [
         {
-          href: '#',
-          role: 'button',
-          class: 'dropdown__menu',
-          label: 'Community',
-        },
-        {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',

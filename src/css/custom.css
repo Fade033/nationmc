@@ -471,3 +471,23 @@ body.premium-page .navbar__items--right {
 body.premium-page .navbar__inner {
   padding-right: 0 !important;
 }
+
+/* Prevent navbar flash/misplacement on initial load */
+.navbar {
+  visibility: hidden;
+}
+
+.navbar--loaded {
+  visibility: visible;
+}
+
+/* Force navbar to render correctly on first paint */
+.navbar__inner {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.navbar__items {
+  display: flex !important;
+  align-items: center !important;
+}
