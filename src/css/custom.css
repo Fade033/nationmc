@@ -51,21 +51,6 @@ body.premium-page {
   font-size: 3rem;
 }
 
-@font-face {
-  font-family: 'Minecraft';
-  src: url('/fonts/Minecraft.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Minecraft2';
-  src: url('/fonts/Minecraft2.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  
-}
-
 h1, h2 {
   font-family: 'Minecraft', sans-serif;
 }
@@ -440,6 +425,8 @@ html {
   margin-right: 0rem !important;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .navbar-play-button:hover {
@@ -452,20 +439,19 @@ html {
   justify-content: space-between;
 }
 
-/* Move left items group to the right */
+/* Center navbar items as a group */
+.navbar__inner {
+  justify-content: center;
+  gap: 2rem;
+}
+
 .navbar__items:first-child {
-  margin-left: auto;
-  padding-left: 44rem; /* Adjust this value */
+  margin-left: 0;
+  padding-left: 0;
 }
 
-/* Move PLAY NOW button to the left */
 .navbar__items--right {
-  margin-right: 41rem; /* Adjust value */
-}
-
-/* Prevent premium page from shifting navbar items */
-body.premium-page .navbar__items--right {
-  margin-right: 42rem !important;
+  margin-right: 0;
 }
 
 body.premium-page .navbar__inner {
@@ -496,12 +482,6 @@ body.premium-page .navbar__inner {
 
 .navbar__inner {
   min-height: 60px;
-}
-
-.navbar-play-button {
-  /* ...your existing styles... */
-  white-space: nowrap;
-  flex-shrink: 0;
 }
 
 @media (max-width: 996px) {
