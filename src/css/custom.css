@@ -489,13 +489,25 @@ body.premium-page .navbar__inner {
   font-display: block;
 }
 
-/* Add this */
-html {
-  visibility: hidden;
+/* Prevent layout shift - pure CSS, no JS needed */
+.navbar {
+  min-height: 60px;
 }
 
-html.fonts-loaded {
-  visibility: visible;
+.navbar__inner {
+  min-height: 60px;
+}
+
+.navbar-play-button {
+  /* ...your existing styles... */
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 996px) {
+  .navbar-play-button {
+    display: none;
+  }
 }
 
 /* Fix mobile navbar */
