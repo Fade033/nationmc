@@ -20,12 +20,12 @@ export default function Home(): ReactNode {
             <button
               className={styles.button}
               onClick={() => {
-                navigator.clipboard.writeText('NationMC.org');
+                navigator.clipboard.writeText('play.NationMC.org');
                 setCopied(true);
                 setTimeout(() => setCopied(false), 2000);
               }}
             >
-              {copied ? 'Copied!' : 'IP: NationMC.org'}
+              {copied ? 'Copied!' : 'IP: play.NationMC.org'}
             </button>
             <Link className={styles.discord} href="https://discord.com/invite/f6h98zac5a/">
               Discord
