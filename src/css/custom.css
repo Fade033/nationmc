@@ -94,35 +94,39 @@ h1, h2 {
 .navbar {
   background-color: #03060b;
   border-bottom: 1px solid #44494e;
-  height: 60px;
+  height: 60px !important;
+  padding: 0 !important;
 }
 
 .navbar__inner {
-  justify-content: center;
-  align-items: center;
-  height: 60px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 60px !important;
+  padding: 0 1rem !important;
 }
 
 .navbar__items {
-  align-items: center;
-  display: flex;
-  height: 100%;
+  display: flex !important;
+  align-items: center !important;
+  height: 60px !important;
+  gap: 0.5rem;
 }
 
 .navbar__items:first-child {
-  margin-left: 0;
-  padding-left: 0;
-  gap: 0.5rem;
-  align-items: center;
-  height: 100%;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 .navbar__items--right {
-  margin-right: 0;
-  position: static;
-  align-items: center;
-  height: 100%;
-  gap: 0.5rem;
+  margin-right: 0 !important;
+  position: static !important;
+}
+
+.navbar__item {
+  display: flex !important;
+  align-items: center !important;
+  height: 60px !important;
 }
 
 .navbar__title {
