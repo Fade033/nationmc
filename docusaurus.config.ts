@@ -107,11 +107,11 @@ const config: Config = {
             },
             {
               label: 'TikTok',
-              href: 'https://tiktok.com/',
+              href: 'https://tiktok.com/@nationmc.org',
             },
             {
               label: 'YouTube',
-              href: 'https://youtube.com/',
+              href: 'https://youtube.com/@PlayNationMC',
             },
             {
               label: 'Vote',
