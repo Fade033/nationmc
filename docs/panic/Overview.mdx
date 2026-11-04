@@ -1,0 +1,53 @@
+---
+title: "Panic! on NationMC"
+sidebar_label: Overview
+sidebar_position: 17
+description: "What Panic! is, what it does for the NationMC community and how it makes decisions."
+---
+
+# Panic! on NationMC
+<span className="panic-badge">Protected by Panic!</span>
+
+NationMC is protected by Panic!, an adaptive anti-cheat and server-protection system developed by Project: Fest!. This page explains what Panic! is, what it does for you as a player, and how it decides when to act.
+
+:::info[In short]
+- Panic! protects fair play, keeps the server stable and manages access when the server is full.
+- It learns what normal play looks like and observes before it acts. A single unusual moment never gets anyone banned.
+- Its protection logic is managed centrally through Panic! Cloud, so every partner server runs the same current standard.
+:::
+
+## What Panic! is
+Panic! is a server-side system. You do not need to install anything, and it does not change how the game plays. It runs in the background and evaluates gameplay behavior such as movement, combat and mining patterns. Over time it learns what normal play looks like on this server and uses that knowledge to recognize cheats more reliably.
+
+Panic! is maintained as one product across several partner servers. Detection logic and updates are delivered through Panic! Cloud. The NationMC team cannot lower the protection level for individual players, so the standard of fairness is the same for everyone.
+
+## How Panic! learns
+Panic! does not rely on a fixed list of rules alone. It builds a picture of what normal play looks like on this server: how players move, how they fight, how they mine. Every player also has a profile that grows with their play time, so Panic! knows what is normal for you and for the server as a whole. The longer Panic! runs on a server, the more precisely it can tell skill from cheating.
+
+Knowledge is shared between partner servers through Panic! Cloud. Patterns confirmed on one server make detection on every other partner server more reliable. This sharing is deliberately conservative: what a server has learned about its own players is never overwritten by data from elsewhere, and new knowledge is cross-checked before it is used.
+
+Your reports are part of this. A confirmed report teaches Panic! which patterns matter and raises your reporter credibility. Learning takes time, and that is intentional: Panic! starts cautious and gets sharper the better it knows the server.
+
+## What Panic! does for the community
+- **Fair play.** Combat hacks, movement hacks, X-ray and automated mining are detected and removed from the server without staff having to catch every case by hand.
+- **Protection that travels with you.** Panic! partner servers share one ban list. A player who is banned for cheating on one partner server is kept out of the others as well.
+- **A stable server.** Panic! monitors server performance and adjusts how many players may be online at the same time. When the server is full, a fair waiting list takes over instead of a plain "server full" message (see [Queue System](./queue)).
+- **Reports that matter.** Every report is evaluated and can place the reported player under closer observation. Reliable reporters earn credibility over time (see [Reports & Fair Play](./reports)).
+- **Fewer wrong calls.** Panic! is built to tolerate lag, high ping and unusual but legitimate play styles. Honest players are not treated as cheaters because of one odd moment.
+
+## How Panic! makes decisions
+Panic! works in stages. Unusual behavior is first recorded as an observation, not as a verdict. Several independent signals have to point in the same direction over time before Panic! treats a player as a confirmed cheater. Uncertain cases lead to closer observation; confirmed cases lead to a ban.
+
+Bans are not always issued the moment a cheat is detected. Panic! may act in waves, so that cheat developers learn as little as possible about what was detected and when. If a player you reported is still online, this does not mean that nothing is happening.
+
+Every player also builds up a trust level through fair play. Higher trust means Panic! gives you more benefit of the doubt, and you are less likely to be asked to make room when the server is full.
+
+## What Panic! does not do
+- It does not change gameplay mechanics, items, the economy or claims.
+- It does not ban anyone for a single suspicious moment or for lag.
+- It does not sell advantages. Panic! is not connected to ranks or the store.
+
+## Questions
+If you have questions about Panic! on NationMC, contact the NationMC staff on [Discord](https://discord.com/invite/f6h98zac5a). Cheating itself is covered by [Rule 1.1](/docs/Rules#11-cheat-clients-and-other-modifications).
+
+*Protected by Panic! — developed by Project: Fest! and operated through Panic! Cloud. Texts in this section are maintained by Panic! and published by the NationMC team.*

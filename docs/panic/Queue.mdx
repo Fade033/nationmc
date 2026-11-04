@@ -1,0 +1,50 @@
+---
+title: Queue System
+sidebar_position: 18
+description: "How the Panic! waiting list works when NationMC is full, how to leave voluntarily, and what happens when the server stays full."
+---
+
+# Queue System
+<span className="panic-badge">Protected by Panic!</span>
+
+When NationMC is full, Panic! does not simply turn you away. It places you on a fair waiting list, tells you where you stand and holds a slot for you when it is your turn. This page explains the whole process from a player's point of view.
+
+:::info[In short]
+- If the server is full, you join a waiting list and see your position and an estimated waiting time.
+- When a slot opens for you, you have five minutes to join before it passes to the next player.
+- Leaving with `/panic leave` while others are waiting gives you priority the next time you join.
+:::
+
+## Why there is a queue
+The number of players the server accepts at the same time is not fixed. Panic! monitors server performance (ticks per second, CPU and memory) and temporarily lowers the limit when the server is under heavy load, so that everyone who is online keeps a smooth experience. When the load drops, the limit rises again. The queue makes sure that free slots are handed out in a fair order instead of going to whoever clicks "Join" at the right moment.
+
+## How the waiting list works
+1. You try to join while the server is full. Panic! adds you to the waiting list. The disconnect screen shows your position and an estimated waiting time, based on how long players usually stay online.
+2. You wait outside the server. Your position is kept. As players ahead of you join or leave, your position improves. Reconnecting does not move you forward, but it shows you your current position.
+3. A slot opens for you. The slot is reserved for five minutes. Reconnect within this time and you are in. If you do not join in time, the slot passes to the next player and you have to queue again.
+4. Priority players go first. Players who recently left voluntarily to make room are placed ahead of the regular list (see below).
+
+:::tip[Timing]
+Check your estimated waiting time and try to reconnect around that time. Reconnecting every few seconds does not improve your position.
+:::
+
+## Leaving voluntarily
+If you are done playing while other players are waiting, use `/panic leave` instead of simply disconnecting. You leave the server in an orderly way, and Panic! rewards you:
+- **Queue priority** for your next join, valid for one hour. This priority works even while the server is full.
+- **A small trust bonus**, if you have played for at least 30 minutes in this session and have not received the bonus in the last 24 hours.
+
+If nobody is waiting, the command tells you so and does nothing.
+
+## When the server stays full
+If a player has been waiting for a long time and nobody leaves, Panic! asks for volunteers first. All players see a short notice that someone is waiting, and the players with the longest sessions receive a personal request to make room with `/panic leave`. A few minutes are given for volunteers to respond.
+
+Only if nobody makes room does Panic! remove a player itself. It chooses the player with the longest current session and never affects players who are in combat, who were removed recently, or who are protected by high trust or a staff role. The removed player is informed beforehand, keeps all progress and receives 30 minutes of queue priority as compensation.
+
+:::warning[Making room is not a punishment]
+Being asked to make room has nothing to do with your behavior. It only means that you have been online the longest while others are waiting. Using `/panic leave` when you are done anyway is the best way to never be affected.
+:::
+
+## Questions
+Problems with the queue? Contact the NationMC staff on [Discord](https://discord.com/invite/f6h98zac5a).
+
+*Protected by Panic! — developed by Project: Fest! and operated through Panic! Cloud. Texts in this section are maintained by Panic! and published by the NationMC team.*
